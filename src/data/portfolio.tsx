@@ -1,12 +1,15 @@
 import type { ReactNode } from 'react'
 
 export type ProjectItem = {
+  slug: string
   title: string
   label: string
   description: string
   snippet: readonly string[]
   href: string
   linkLabel: string
+  overview?: string
+  featureList?: readonly string[]
   screenshots?: readonly {
     src: string
     alt: string
@@ -52,13 +55,26 @@ export const toolTags = [
 
 export const projectItems: readonly ProjectItem[] = [
   {
+    slug: 'kurdistan-academy',
     title: 'Kurdistan Academy App',
     label: 'Production Mobile App',
     description:
       'A learning platform built for real users with authentication, course access, video learning, and scalable Flutter architecture.',
     snippet: ['lib/features/auth/', 'lib/features/courses/', 'lib/features/player/', 'lib/core/network/', 'lib/core/di/'],
-    href: '/resume/MarwanStarCV.pdf',
-    linkLabel: 'View case snapshot',
+    href: '?project=kurdistan-academy',
+    linkLabel: 'Read app features',
+    overview:
+      'Kurdistan Academy is a production Flutter e-learning app built to help students learn through structured lessons, direct communication, and a smoother long-term study flow.',
+    featureList: [
+      'Chat between students and teachers for support and communication.',
+      'Video lessons with a dedicated learning flow for course content.',
+      'Continue watching so users can return to lessons without losing progress.',
+      'Scheduled lectures to support planned learning sessions.',
+      'Multi-language support for a broader student audience.',
+      'Dark and light theme support for better usability.',
+      'Screenshot prevention on protected screens.',
+      'Screen recording prevention for sensitive learning content.',
+    ],
     screenshots: [
       {
         src: '/projects/kurdistan-academy-home.jfif',
@@ -75,6 +91,7 @@ export const projectItems: readonly ProjectItem[] = [
     ],
   },
   {
+    slug: 'bnchina-mart',
     title: 'Bnchina Mart',
     label: 'Flutter Commerce App',
     description:
@@ -84,6 +101,7 @@ export const projectItems: readonly ProjectItem[] = [
     linkLabel: 'Discuss the build',
   },
   {
+    slug: 'e-learning-website',
     title: 'E-Learning Website',
     label: 'Full-Stack Web Build',
     description:

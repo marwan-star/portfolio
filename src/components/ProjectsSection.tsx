@@ -24,30 +24,13 @@ export function ProjectsSection() {
                     {project.label}
                   </p>
                   {project.screenshots?.length ? (
-                    <div className="mt-5 grid gap-3">
-                      <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#090c12]">
-                        <img
-                          alt={project.screenshots[0].alt}
-                          className="h-72 w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
-                          loading="lazy"
-                          src={project.screenshots[0].src}
-                        />
-                      </div>
-                      <div className="grid grid-cols-2 gap-3">
-                        {project.screenshots.slice(1, 3).map((shot) => (
-                          <div
-                            className="overflow-hidden rounded-xl border border-white/10 bg-[#090c12]"
-                            key={shot.src}
-                          >
-                            <img
-                              alt={shot.alt}
-                              className="h-28 w-full object-cover object-top"
-                              loading="lazy"
-                              src={shot.src}
-                            />
-                          </div>
-                        ))}
-                      </div>
+                    <div className="mt-5 overflow-hidden rounded-2xl border border-white/10 bg-[#090c12]">
+                      <img
+                        alt={project.screenshots[0].alt}
+                        className="h-72 w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
+                        loading="lazy"
+                        src={project.screenshots[0].src}
+                      />
                     </div>
                   ) : (
                     <div className="mt-5 rounded-2xl border border-white/10 bg-[#090c12] p-4 font-mono text-sm text-slate-400">

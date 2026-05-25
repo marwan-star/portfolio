@@ -1,5 +1,18 @@
 import type { ReactNode } from 'react'
 
+export type ProjectItem = {
+  title: string
+  label: string
+  description: string
+  snippet: readonly string[]
+  href: string
+  linkLabel: string
+  screenshots?: readonly {
+    src: string
+    alt: string
+  }[]
+}
+
 export const navigation = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
@@ -37,7 +50,7 @@ export const toolTags = [
   'Clean Architecture',
 ] as const
 
-export const projectItems = [
+export const projectItems: readonly ProjectItem[] = [
   {
     title: 'Kurdistan Academy App',
     label: 'Production Mobile App',
@@ -46,6 +59,20 @@ export const projectItems = [
     snippet: ['lib/features/auth/', 'lib/features/courses/', 'lib/features/player/', 'lib/core/network/', 'lib/core/di/'],
     href: '/resume/MarwanStarCV.pdf',
     linkLabel: 'View case snapshot',
+    screenshots: [
+      {
+        src: '/projects/kurdistan-academy-home.jfif',
+        alt: 'Kurdistan Academy app home screen with course categories and continue watching section',
+      },
+      {
+        src: '/projects/kurdistan-academy-kurdish-home.jfif',
+        alt: 'Kurdistan Academy app home screen in Kurdish showing categories, courses, and teachers',
+      },
+      {
+        src: '/projects/kurdistan-academy-teachers.jfif',
+        alt: 'Kurdistan Academy teachers screen showing a grid of instructors',
+      },
+    ],
   },
   {
     title: 'Bnchina Mart',

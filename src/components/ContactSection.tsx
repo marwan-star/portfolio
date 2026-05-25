@@ -1,8 +1,25 @@
+import type { FormEvent } from 'react'
 import { socialLinks } from '../data/portfolio'
 import { SectionHeading } from './SectionHeading'
 import { SocialIconLink } from './SocialIconLink'
 
 export function ContactSection() {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    const formData = new FormData(event.currentTarget)
+    const name = String(formData.get('name') ?? '').trim()
+    const email = String(formData.get('email') ?? '').trim()
+    const message = String(formData.get('message') ?? '').trim()
+
+    const subject = encodeURIComponent(`Portfolio contact from ${name || 'Website visitor'}`)
+    const body = encodeURIComponent(
+      [`Name: ${name}`, `Email: ${email}`, '', 'Message:', message].join('\n'),
+    )
+
+    window.location.href = `mailto:marwan.00181941@gmail.com?subject=${subject}&body=${body}`
+  }
+
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 md:px-8" id="contact">
       <div className="border-t border-white/10 pt-14">
@@ -34,12 +51,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          <form
-            action="mailto:marwan.00181941@gmail.com"
-            className="rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-6"
-            encType="text/plain"
-            method="post"
-          >
+          <form className="rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-6" onSubmit={handleSubmit}>
             <div className="grid gap-5">
               <label className="grid gap-2">
                 <span className="text-sm text-slate-300">Name</span>
